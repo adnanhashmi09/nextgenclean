@@ -1,0 +1,250 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+@use '../utils/include-media' as *;
+
+.container {
+  width: 100%;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.blob1 {
+  position: absolute;
+  right: -40rem;
+  top: -20rem;
+
+  @include media('>mindesk') {
+    right: -0.5rem;
+    top: -10rem;
+  }
+
+  z-index: -1;
+}
+
+.blob2 {
+  position: absolute;
+  display: none;
+
+  @include media('>mindesk') {
+    display: block;
+    right: -0.5rem;
+  }
+
+  z-index: -1;
+}
+
+.blob3 {
+  position: absolute;
+  left: -35rem;
+  top: 120vh;
+  z-index: -1;
+
+  svg {
+    height: 80rem;
+  }
+
+  @include media('>=phone', 'height>=800px') {
+    top: 100vh;
+  }
+
+  @include media('>=tablet') {
+    top: 110vh;
+  }
+
+  @include media('>=mindesk') {
+    top: 110vh;
+    left: -10rem;
+    svg {
+      height: 75vw;
+    }
+  }
+
+  @include media('>=mindesk', 'height>1200px') {
+    top: 50vh;
+    left: -20rem;
+    svg {
+      height: 85vw;
+    }
+  }
+}
+
+.blob4 {
+  position: absolute;
+  right: -25rem;
+  bottom: 0rem;
+  z-index: -1;
+  opacity: 0.7;
+  height: 30rem;
+  overflow: hidden;
+
+  svg {
+    transform: translateY(-20rem);
+  }
+
+  @include media('>mindesk') {
+    height: 60rem;
+    right: -5rem;
+  }
+}
+
+.navBlob {
+  position: absolute;
+  display: none;
+
+  @include media('>mindesk') {
+    display: block;
+    right: -0.2rem;
+    top: -3rem;
+  }
+
+  @include media('>mindesk', '<1400px') {
+    right: -10.8rem;
+    top: -5rem;
+  }
+
+  z-index: -1;
+}
+
+.blob5 {
+  position: absolute;
+  left: -35rem;
+  top: 20vh;
+  z-index: -1;
+  overflow-y: hidden;
+
+  svg {
+    height: 80rem;
+  }
+
+  @include media('>=tablet') {
+    top: 20vh;
+  }
+
+  @include media('>=mindesk') {
+    top: 20vh;
+    left: -10rem;
+    svg {
+      height: 65vw;
+    }
+  }
+}
+
+.blob6 {
+  position: absolute;
+  right: -25rem;
+  bottom: 0rem;
+  z-index: -1;
+  opacity: 0.7;
+  height: 30rem;
+  overflow: hidden;
+
+  svg {
+    transform: translateY(-20rem);
+  }
+
+  @include media('>mindesk') {
+    height: 50rem;
+    right: -5rem;
+  }
+}
+
+.blob7 {
+  position: absolute;
+  left: -35rem;
+  top: 100vh;
+  z-index: -1;
+  overflow-y: hidden;
+
+  svg {
+    height: 80rem;
+  }
+
+  @include media('>=tablet') {
+    top: 50vh;
+  }
+
+  @include media('>=mindesk') {
+    top: 60vh;
+    left: -10rem;
+    svg {
+      height: 65vw;
+    }
+  }
+
+  @include media('>=mindesk', 'height>1200px') {
+    top: 30vh;
+    left: -20rem;
+    svg {
+      height: 85vw;
+    }
+  }
+}
+
+.blob8 {
+  position: absolute;
+  right: -25rem;
+  top: 470vh;
+  z-index: -99;
+
+  svg {
+    height: 150vw;
+  }
+
+  @include media('>=phone', 'height>=800px') {
+    top: 320vh;
+  }
+
+  @include media('>=tablet') {
+    top: 280vh;
+    svg {
+      height: 75vw;
+    }
+  }
+
+  @include media('>=mindesk') {
+    top: 260vh;
+    right: -10rem;
+    svg {
+      height: 75vw;
+    }
+  }
+
+  @include media('>=mindesk', 'height>1200px') {
+    top: 180vh;
+    right: -10rem;
+    svg {
+      height: 85vw;
+    }
+  }
+}
+
+.blob9 {
+  position: absolute;
+  left: -35rem;
+  top: 550vh;
+  z-index: -1;
+  overflow-y: hidden;
+
+  svg {
+    height: 65rem;
+  }
+
+  @include media('>=tablet') {
+    top: 50vh;
+  }
+
+  @include media('>=mindesk') {
+    top: 470vh;
+    left: -10rem;
+    svg {
+      height: 75vw;
+    }
+  }
+}

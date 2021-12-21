@@ -1,0 +1,44 @@
+@use '../utils/variables' as *;
+@use '../utils/include-media' as *;
+@use '../utils/mixins' as *;
+
+.card {
+  height: 12rem;
+  width: 12rem;
+  outline: none;
+  border: none;
+
+  &:hover,
+  &:active,
+  &:focus {
+    cursor: grab;
+  }
+
+  @include media('>mindesk') {
+    height: 20rem;
+    width: 20rem;
+  }
+
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    outline: none;
+    border: none;
+  }
+}
+
+.heading {
+  text-align: center;
+  @include media('>mindesk') {
+    padding: 0 3rem;
+  }
+
+  h2 {
+    @include heading-text;
+    margin-bottom: 3rem;
+    @include media('>mindesk') {
+      margin-bottom: 6rem;
+    }
+  }
+}

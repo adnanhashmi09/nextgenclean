@@ -1,0 +1,92 @@
+@use '../utils/variables' as *;
+@use '../utils/include-media' as *;
+@use '../utils/mixins' as *;
+
+.blogpost {
+  margin-bottom: 10rem;
+
+  .meta {
+    h1 {
+      text-align: center;
+      @include heading-text;
+      line-height: 1.35;
+    }
+    img {
+      width: 100%;
+      margin: 3rem 0 2rem;
+    }
+  }
+
+  .post {
+    margin-top: 0.75rem;
+    line-height: 1.7rem;
+    font-size: 1.025rem;
+    letter-spacing: 0.003rem;
+    color: rgba(41, 41, 41, 1);
+
+    img {
+      max-width: 100%;
+      object-fit: cover;
+      margin: 2.25rem 0;
+    }
+
+    p {
+      @include caption-text;
+      margin: 1.5rem 0;
+    }
+
+    a {
+      text-decoration: underline;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin: 1rem 0;
+      line-height: 1.25;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+
+    h2 {
+      font-size: 2.4rem;
+    }
+    h3 {
+      font-size: 2.4rem;
+    }
+
+    h4 {
+      font-size: 2.3rem;
+    }
+
+    h5 {
+      font-size: 2.2rem;
+    }
+
+    h6 {
+      font-size: 2rem;
+    }
+
+    ul {
+      margin-top: 1.1rem;
+      margin-left: 1.5rem;
+      li {
+        margin-top: 0.5rem;
+      }
+      ul {
+        margin-left: 2rem;
+        margin-top: 0.05rem;
+        li {
+          margin-top: 0.25rem;
+        }
+      }
+    }
+  }
+}

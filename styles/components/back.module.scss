@@ -1,0 +1,34 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+@use '../utils/include-media' as *;
+
+.backButton {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 3.8rem;
+
+  @include media('>mindesk') {
+    margin-top: 5.5rem;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+
+    svg {
+      font-size: 2rem;
+      margin-right: 0.75rem;
+      @include media('>mindesk') {
+        font-size: 2.5rem;
+      }
+    }
+
+    @include media('>mindesk') {
+      font-weight: 1.9rem;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+@use '../utils/variables' as *;
+@use '../utils/include-media' as *;
+@use '../utils/mixins' as *;
+
+.btn {
+  font-size: $fnt-small;
+  padding: 1.2rem 2.5rem;
+  background-color: $clr-primary;
+  color: $clr-white !important;
+  font-weight: 500;
+  display: inline-block;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.btn.navbtn {
+  margin-left: 1.13vw;
+  @include media('<=tablet') {
+    display: none;
+  }
+}

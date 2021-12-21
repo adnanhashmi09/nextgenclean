@@ -1,0 +1,195 @@
+@use '../utils/variables' as *;
+@use '../utils/include-media' as *;
+@use '../utils/mixins' as *;
+
+.navbar {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0;
+  z-index: 9;
+
+  padding: 2rem;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  max-width: calc(89vw);
+  margin: 0 auto;
+  transition: all 0.3s ease-in-out;
+
+  &.down {
+    transform: translate(-50%, -100%);
+  }
+
+  &.up {
+    background-color: $clr-white;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.logo {
+  width: 6rem;
+
+  @include media('>tablet') {
+    width: 8rem;
+  }
+}
+
+.logo svg {
+  height: 100%;
+}
+
+.mainLinks {
+  @include media('<=tablet') {
+    display: none;
+  }
+}
+
+.hamburger {
+  // height: 2.6rem;
+  cursor: pointer;
+  z-index: 999;
+
+  .icon {
+    width: 3.3rem;
+    height: 3.3rem;
+  }
+
+  @include media('>tablet') {
+    display: none;
+  }
+}
+
+.aside {
+  position: fixed;
+  top: 0;
+  left: 120%;
+  width: 100vw;
+  z-index: 10;
+  height: 100vh;
+  background-color: $clr-white;
+  transition: left 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .hamburger {
+    position: absolute;
+    top: 2rem;
+    right: 3rem;
+    .icon {
+      width: 3.3rem;
+      height: 3.3rem;
+    }
+  }
+
+  &.active {
+    left: 0%;
+  }
+
+  &__mainLinks {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  &__navLink {
+    font-size: 2.5rem;
+    font-weight: 500;
+    padding: 2.5rem 0.4vw;
+    color: $clr-gray-dark;
+    display: inline-block;
+
+    &:focus {
+      color: $clr-primary;
+    }
+  }
+
+  &__sublinksBox {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    margin-left: 1rem;
+  }
+
+  &__sublink {
+    font-size: 1.8rem;
+    color: $clr-gray;
+    padding: 2rem 1rem 0 1rem;
+    transition: color 0.3s ease;
+
+    &:hover,
+    &:focus {
+      color: $clr-primary;
+    }
+  }
+
+  @include media('>tablet') {
+    display: none;
+  }
+}
+
+.navLink {
+  font-size: $fnt-small;
+  font-weight: 600;
+  padding: 0.7rem 0.4vw;
+  margin: 0 1.3vw;
+  color: $clr-gray-dark;
+  position: relative;
+  text-align: center;
+  display: inline-block;
+
+  &::after {
+    content: '';
+    height: 0.3rem;
+    width: 100%;
+    position: absolute;
+    background-color: $clr-primary;
+    left: 0;
+    bottom: 0;
+    transform-origin: center;
+    width: 0;
+    transition: width 0.3s ease;
+  }
+
+  &:hover::after,
+  &:focus::after {
+    width: 100%;
+  }
+
+  .sublinksBox {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    position: absolute;
+    left: 0;
+    top: 3.5rem;
+    white-space: nowrap;
+    background-color: $clr-white;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+
+    .sublink {
+      font-size: $fnt-small;
+      color: $clr-gray-dark;
+      padding: 1vw 1.3vw;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: $clr-primary;
+      }
+    }
+  }
+
+  &:hover .sublinksBox,
+  &:focus .sublinksBox {
+    opacity: 1;
+    pointer-events: all;
+  }
+}

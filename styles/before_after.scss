@@ -1,0 +1,117 @@
+@use './utils/variables' as *;
+@use './utils/include-media' as *;
+@use './utils/mixins' as *;
+
+// Before After styles
+
+:root {
+  --image-comparison-slider-width: min(90vw, 1120px);
+  --image-comparison-slider-handle-width: 50px;
+}
+
+#image-comparison-slider {
+  position: relative;
+  width: var(--image-comparison-slider-width);
+  overflow: hidden;
+  border-radius: 0.5rem;
+  box-shadow: -7px 5px 16px 1px rgba(56, 86, 122, 0.6);
+  cursor: col-resize;
+}
+#image-comparison-slider img {
+  display: block;
+  width: var(--image-comparison-slider-width);
+  height: auto;
+  max-height: 70vh;
+  object-fit: cover;
+  pointer-events: none;
+  user-select: none;
+}
+#image-comparison-slider .img-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+  transform: translateZ(
+    0
+  ); /* This is in order to fix a Firefox bug, related to the 3D tilt effect */
+  /* transition: 0.25s cubic-bezier(.03,.98,.52,.99); */
+}
+#image-comparison-slider .img-wrapper img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+}
+
+#image-comparison-slider .label {
+  position: absolute;
+  top: 1.6rem;
+  z-index: 3;
+  color: #000;
+  background-color: #fff;
+  font-weight: 700;
+  border-radius: 0.25rem;
+  padding: 1rem 2.25rem;
+  font-size: 1.5rem;
+
+  @include media('<tablet') {
+    font-size: 0.85rem;
+    padding: 0.75rem 1rem;
+  }
+
+  text-align: center;
+  letter-spacing: 1px;
+  user-select: none;
+  opacity: 1;
+  transition: 0.25s cubic-bezier(0.68, 0.26, 0.58, 1.22);
+}
+
+#image-comparison-slider .label.label-before {
+  left: 1.6rem;
+}
+#image-comparison-slider .label.label-after {
+  right: 1.6rem;
+}
+#image-comparison-slider .handle {
+  position: absolute;
+  top: 0;
+  left: calc(50% - var(--image-comparison-slider-handle-width) / 2);
+  width: var(--image-comparison-slider-handle-width);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  z-index: 2;
+  /* transition: 0.25s cubic-bezier(.03,.98,.52,.99); */
+}
+#image-comparison-slider .handle-line {
+  width: 2px;
+  flex-grow: 1;
+  background-color: #fff;
+}
+#image-comparison-slider .handle-circle {
+  width: var(--image-comparison-slider-handle-width);
+  height: var(--image-comparison-slider-handle-width);
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  svg {
+    font-size: 1.5rem;
+    stroke-width: 0.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --image-comparison-slider-width: 90vw;
+  }
+}

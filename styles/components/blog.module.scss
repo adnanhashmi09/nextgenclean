@@ -1,0 +1,174 @@
+@use '../utils/variables' as *;
+@use '../utils/include-media' as *;
+@use '../utils/mixins' as *;
+
+.heading {
+  text-align: center;
+
+  h2 {
+    @include heading-text;
+  }
+
+  p {
+    @include caption-text;
+    margin: 0.5rem 0;
+
+    @include media('>mindesk') {
+      margin: 2rem 0;
+    }
+  }
+}
+
+.card {
+  display: block;
+  text-align: center;
+  padding: 0 3rem;
+  margin-bottom: 3rem;
+
+  @include media('>mindesk') {
+    padding: 0 3.25rem;
+    text-align: left;
+  }
+
+  img {
+    width: 100%;
+    height: 19rem;
+    object-fit: cover;
+    padding: 0 1rem;
+
+    @include media('>mindesk') {
+      height: 26rem;
+      padding: 0;
+    }
+
+    @include media('>1600px') {
+      height: 32.5rem;
+    }
+  }
+
+  h3 {
+    font-size: 2rem;
+    margin: 1rem 0;
+    color: $clr-black;
+
+    @include media('>mindesk') {
+      font-size: 2.65rem;
+      margin: 1.5rem 0;
+    }
+  }
+
+  a,
+  p {
+    @include caption-text;
+    @include media('>mindesk') {
+      line-height: 1.35;
+      font-size: 1.9rem;
+      opacity: 0.95;
+    }
+  }
+
+  a {
+    color: $clr-primary;
+    margin: 1rem 0 2rem;
+    display: block;
+  }
+}
+
+.postsSection {
+  padding: 3.5rem 0 0;
+  overflow-x: hidden;
+
+  @include media('>tablet') {
+    padding: 5rem 0 0;
+  }
+
+  @include media('>mindesk') {
+    padding: 6rem 0 0;
+  }
+
+  @include media('>LGdesktop') {
+    padding: 9rem 0 0;
+  }
+}
+
+.postsContainer {
+  margin: 6.25rem 0 2rem;
+  > .card {
+    margin-bottom: 5rem;
+
+    @include media('>phone') {
+      padding: 0;
+    }
+
+    @include media('>=desktop') {
+      margin-bottom: 6rem;
+    }
+
+    h3 {
+      color: $clr-black;
+    }
+  }
+
+  @include media('>=620px') {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 4rem;
+  }
+
+  @include media('>mindesk') {
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 7rem;
+  }
+
+  @include media('>1600px') {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 5rem;
+  }
+}
+
+.newHeading {
+  margin-top: 5rem;
+  width: 100%;
+  text-align: center;
+
+  @include media('>phone') {
+    text-align: left;
+  }
+
+  & h2 {
+    @include caption-text;
+    color: $clr-primary;
+    margin-top: 1rem;
+    font-weight: 700;
+
+    @include media('>mindesk') {
+      margin-top: 3rem;
+    }
+  }
+
+  & h3 {
+    @include heading-text;
+  }
+}
+
+.blogContainerMain {
+  width: 100%;
+  max-width: 850px;
+  margin-left: auto;
+  margin-right: auto;
+
+  padding: 3rem 0 0;
+  overflow-x: hidden;
+
+  @include media('>tablet') {
+    padding: 4rem 0 0;
+  }
+
+  @include media('>mindesk') {
+    padding: 5rem 0 0;
+  }
+
+  @include media('>LGdesktop') {
+    padding: 8rem 0 0;
+  }
+}

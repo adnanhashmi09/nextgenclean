@@ -1,0 +1,186 @@
+@use '../utils/variables' as *;
+@use '../utils/include-media' as *;
+@use '../utils/mixins' as *;
+
+.heading {
+  text-align: center;
+  @include media('>mindesk') {
+    text-align: left;
+    padding: 0 3rem;
+  }
+
+  h2 {
+    @include heading-text;
+  }
+
+  p {
+    @include caption-text;
+    margin: 1.5rem 0;
+
+    @include media('>mindesk') {
+      margin: 2rem 0;
+    }
+  }
+}
+
+.card {
+  text-align: center;
+  padding: 0 3rem;
+
+  @include media('>mindesk') {
+    padding: 0 3.25rem;
+    text-align: left;
+  }
+
+  img {
+    width: 100%;
+    height: 19rem;
+    object-fit: cover;
+    padding: 0 1rem;
+
+    @include media('>mindesk') {
+      height: 26rem;
+      padding: 0;
+    }
+
+    @include media('>1600px') {
+      height: 32.5rem;
+    }
+  }
+
+  h3 {
+    font-size: 2rem;
+    margin: 1rem 0;
+
+    @include media('>mindesk') {
+      font-size: 2.65rem;
+      margin: 1.5rem 0;
+    }
+  }
+
+  p {
+    @include caption-text;
+    @include media('>mindesk') {
+      line-height: 1.35;
+      font-size: 1.9rem;
+      opacity: 0.95;
+    }
+  }
+}
+
+/////////////////////////////////////////////////////////////////
+// Styles for services page //
+/////////////////////////////////////////////////////////////////
+
+.page_heading {
+  margin-top: 5rem;
+
+  @include media('>mindesk') {
+    margin-top: 10rem;
+  }
+  & h2 {
+    text-align: center;
+    @include caption-text;
+    color: $clr-primary;
+    margin-top: 1rem;
+
+    @include media('>mindesk') {
+      text-align: left;
+      margin-top: 3rem;
+    }
+  }
+
+  & h3 {
+    text-align: center;
+    @include heading-text;
+
+    @include media('>mindesk') {
+      text-align: left;
+    }
+  }
+}
+
+.container {
+  margin: 6.25rem 0 2rem;
+  > .card {
+    margin-bottom: 5rem;
+
+    @include media('>phone') {
+      padding: 0;
+    }
+
+    @include media('>=desktop') {
+      margin-bottom: 6rem;
+    }
+
+    h3 {
+      color: $clr-black;
+    }
+  }
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 2rem;
+
+  @include media('>=620px') {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 4rem;
+    row-gap: 2rem;
+  }
+
+  @include media('>mindesk') {
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 7rem;
+    row-gap: 2rem;
+  }
+
+  @include media('>1600px') {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 5rem;
+    row-gap: 2rem;
+  }
+}
+
+.page_card {
+  text-align: center;
+  cursor: pointer;
+
+  @include media('>mindesk') {
+    text-align: left;
+  }
+
+  img {
+    width: 100%;
+    height: 19rem;
+    object-fit: cover;
+    padding: 0 1rem;
+
+    @include media('>mindesk') {
+      height: 26rem;
+      padding: 0;
+    }
+
+    @include media('>1600px') {
+      height: 32.5rem;
+    }
+  }
+
+  h3 {
+    font-size: 2rem;
+    margin: 1rem 0;
+
+    @include media('>mindesk') {
+      font-size: 2.65rem;
+      margin: 1.5rem 0;
+    }
+  }
+
+  p {
+    @include caption-text;
+    @include media('>mindesk') {
+      line-height: 1.35;
+      font-size: 1.9rem;
+      opacity: 0.95;
+    }
+  }
+}

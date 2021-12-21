@@ -1,0 +1,50 @@
+@use '../utils/variables' as *;
+@use '../utils/include-media' as *;
+@use '../utils/mixins' as *;
+
+.container {
+  text-align: center;
+
+  @include media('>tablet') {
+    text-align: left;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+  }
+
+  @include media('>mindesk') {
+    grid-template-columns: 1.1fr 1fr;
+    gap: 10rem;
+  }
+
+  h2 {
+    @include heading-text;
+  }
+
+  p {
+    @include caption-text;
+    margin: 2rem 0;
+
+    @include media('>mindesk') {
+      margin: 3rem 0;
+    }
+  }
+
+  > .img {
+    width: 100%;
+    margin-top: 4.5rem;
+    flex-grow: 1;
+
+    @include media('>tablet') {
+      margin-top: 0;
+    }
+
+    // @include media('>')
+
+    img {
+      width: 100%;
+    }
+  }
+}

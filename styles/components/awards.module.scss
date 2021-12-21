@@ -1,0 +1,132 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+@use '../utils/include-media' as *;
+
+.heading {
+  text-align: center;
+  @include media('>mindesk') {
+    text-align: center;
+    padding: 0 3rem;
+  }
+
+  h2 {
+    @include heading-text;
+  }
+}
+.line1 {
+  display: flex;
+  justify-content: space-around;
+  flex-flow: row wrap;
+  align-items: center;
+  margin-top: 1rem;
+  @include media('>=tablet') {
+    margin-top: 5.5rem;
+  }
+
+  .card {
+    margin: 2rem 0;
+
+    @include media('>=tablet') {
+      width: 35%;
+    }
+
+    @include media('>=mindesk') {
+      width: 38%;
+    }
+    .img {
+      width: 100%;
+
+      @include media('>=tablet') {
+        height: 25vw;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    p {
+      @include caption-text;
+      line-height: 1.2;
+      color: $clr-black;
+      margin-top: 1rem;
+      text-align: center;
+
+      @include media('>=tablet') {
+        margin-top: 1.5rem;
+        line-height: 1.3;
+      }
+    }
+  }
+}
+
+.line2 {
+  margin: 1rem 0;
+
+  @include media('>=tablet') {
+    margin: 8rem auto;
+    width: 80%;
+  }
+  h3 {
+    font-size: 2rem;
+    color: $clr-black;
+    text-align: center;
+    font-weight: 700;
+
+    @include media('>=tablet') {
+      font-size: 3rem;
+      margin-bottom: 4rem;
+    }
+  }
+
+  p {
+    @include caption-text;
+    line-height: 1.2;
+    color: $clr-black;
+    margin-top: 1rem;
+    text-align: center;
+    @include media('>=tablet') {
+      width: 80%;
+      margin: 2rem auto;
+    }
+  }
+
+  a p {
+    @include caption-text;
+    line-height: 1.2;
+    text-align: center !important;
+    margin-top: 2rem;
+    text-decoration: underline;
+    color: #4d5ef8 !important;
+  }
+
+  .img {
+    width: 50%;
+    margin: 2rem auto 1rem auto;
+
+    @include media('>=tablet') {
+      width: 25%;
+    }
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .awardMoney {
+    margin-bottom: 5rem;
+
+    p {
+      @include details-text;
+      text-align: center;
+      color: $clr-gray;
+      font-weight: 700;
+      text-decoration: underline;
+      line-height: 0.5 !important;
+    }
+  }
+}

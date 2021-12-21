@@ -1,0 +1,91 @@
+@use '../utils/variables' as *;
+@use '../utils/include-media' as *;
+@use '../utils/mixins' as *;
+
+.heading {
+  text-align: center;
+  @include media('>mindesk') {
+    text-align: center;
+    padding: 0 3rem;
+  }
+
+  h2 {
+    @include heading-text;
+  }
+}
+
+.cardGrp {
+  width: 100%;
+  margin-bottom: 9rem;
+
+  &:hover,
+  &:active,
+  &:focus {
+    cursor: grab;
+  }
+
+  @include media('>=800px') {
+    width: 93%;
+  }
+  .card {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-flow: row nowrap;
+    padding-bottom: 3rem;
+
+    @include media('>desktop') {
+      padding-bottom: 5rem;
+    }
+
+    span {
+      font-size: 2rem;
+      color: $clr-black;
+      font-weight: 500;
+      border: 2px solid $clr-primary;
+      width: 3.5rem;
+      height: 3.5rem;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 1.2rem;
+
+      @include media('>=800px') {
+        margin-right: 1.5rem;
+      }
+
+      @include media('>mindesk') {
+        font-size: 2.5rem;
+        width: 4.5rem;
+        height: 4.5rem;
+        margin-right: 2rem;
+      }
+    }
+
+    .content {
+      border-bottom: 2px solid #dddddd;
+      padding-bottom: 3rem;
+      flex: 1;
+
+      @include media('>desktop') {
+        padding-bottom: 5rem;
+      }
+    }
+
+    h4 {
+      @include caption-text;
+      color: $clr-black;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    p {
+      @include details-text;
+      margin-top: 2rem;
+      color: $clr-gray;
+      font-weight: 600;
+      text-decoration: underline;
+    }
+  }
+}

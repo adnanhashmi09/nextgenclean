@@ -1,0 +1,75 @@
+@use '../utils/variables' as *;
+@use '../utils/include-media' as *;
+@use '../utils/mixins' as *;
+
+.slider {
+  margin-top: 8rem;
+  @include media('>mindesk') {
+    margin-top: 6rem;
+  }
+}
+
+.nextArrow,
+.prevArrow {
+  position: absolute !important;
+  top: -5rem !important;
+  height: 3.5rem !important;
+  width: 3.5rem !important;
+  border-radius: 100% !important;
+  background: $clr-primary !important;
+  font-size: 2.5rem !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+
+  @include media('>mindesk') {
+    top: -6.75rem !important;
+    height: 4.75rem !important;
+    width: 4.75rem !important;
+    font-size: 2.8rem !important;
+  }
+
+  svg {
+    stroke: white;
+    polyline {
+      stroke: white;
+      stroke-width: 0.25rem;
+
+      @include media('>mindesk') {
+        stroke-width: 0.3rem;
+      }
+    }
+  }
+
+  &::before {
+    content: '' !important;
+    height: 0 !important;
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.nextArrow {
+  left: 50% !important;
+  transform: translateX(25%) translateY(0) !important;
+
+  @include media('>mindesk') {
+    left: unset !important;
+    right: 0 !important;
+    transform: translateX(-100%) translateY(0) !important;
+  }
+}
+
+.prevArrow {
+  left: unset !important;
+  right: 50% !important;
+  transform: translateX(-25%) translateY(0) !important;
+
+  @include media('>mindesk') {
+    left: unset !important;
+    right: 7.2rem !important;
+    transform: translateX(-100%) translateY(0) !important;
+  }
+}

@@ -1,0 +1,146 @@
+@use '../utils/variables' as *;
+@use '../utils/include-media' as *;
+@use '../utils/mixins' as *;
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $clr-black;
+  opacity: 0.9;
+  z-index: 99;
+}
+
+.popup,
+.popupForm {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  transform: translate(-50%, -50%);
+  background-color: $clr-white;
+  z-index: 100;
+  overflow: hidden;
+
+  @include media('>tablet') {
+    width: 65%;
+  }
+
+  @include media('>mindesk') {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    height: 40rem;
+  }
+
+  .img {
+    width: 100%;
+    height: 18rem;
+
+    @include media('>phone') {
+      height: 20rem;
+    }
+
+    @include media('>tablet') {
+      height: 25rem;
+    }
+
+    @include media('>mindesk') {
+      height: 100%;
+      width: 50rem;
+    }
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .content {
+    padding: 2rem;
+    @include media('>phone') {
+      padding: 4rem;
+    }
+    @include media('>mindesk') {
+      padding: 4rem;
+      width: 65%;
+    }
+    h2 {
+      @include semi-heading-text;
+      font-size: 2rem;
+
+      @include media('>phone') {
+        font-size: 2.4rem;
+      }
+
+      @include media('>mindesk') {
+        font-size: 3.3rem;
+      }
+    }
+
+    p {
+      @include caption-text;
+      margin-top: 1rem;
+    }
+  }
+
+  .cross {
+    height: 4rem;
+    width: 4rem;
+    background-color: $clr-primary;
+    border-radius: 50%;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .icon {
+    font-size: 3rem;
+    color: $clr-white;
+  }
+}
+
+.popupForm {
+  height: unset !important;
+  max-height: 95vh;
+  overflow-y: auto;
+
+  .cross {
+    height: 3rem;
+    width: 3rem;
+    background-color: $clr-primary;
+    border-radius: 50%;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .icon {
+    font-size: 2rem;
+    color: $clr-white;
+  }
+
+  @include media('>tablet') {
+    .cross {
+      height: 4rem;
+      width: 4rem;
+    }
+
+    .icon {
+      font-size: 3rem;
+    }
+  }
+}

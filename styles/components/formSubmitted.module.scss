@@ -1,0 +1,31 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+@use '../utils/include-media' as *;
+
+.heading {
+  margin: 2rem auto;
+  padding: 0;
+  @include semi-heading-text;
+  text-align: center;
+  font-size: clamp(1.5rem, 3vw, 3.5rem);
+}
+
+.redirect {
+  @include caption-text;
+  text-align: center;
+}
+
+.loader,
+.loader404 {
+  margin: 5rem auto;
+  width: 90%;
+
+  @include media('>=tablet') {
+    margin: 10rem auto;
+    width: 40%;
+  }
+}
+
+.loader404 {
+  margin: 0 auto;
+}

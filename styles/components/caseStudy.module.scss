@@ -1,0 +1,38 @@
+@use '../utils/variables' as *;
+@use '../utils/include-media' as *;
+@use '../utils/mixins' as *;
+
+.page_heading {
+  & h2 {
+    text-align: center;
+    @include caption-text;
+    color: $clr-primary;
+    font-weight: 700;
+  }
+
+  & h3 {
+    text-align: center;
+    @include heading-text;
+    margin-top: 1rem;
+  }
+}
+
+.before_after {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4rem;
+}
+
+.paragraph {
+  @include caption-text;
+  margin: 3rem auto;
+  width: 95%;
+  text-align: center;
+  margin-top: 5.5rem;
+  margin-bottom: 9rem;
+
+  @include media('>=tablet') {
+    width: 80%;
+  }
+}
